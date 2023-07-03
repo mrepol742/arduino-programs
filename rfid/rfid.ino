@@ -52,10 +52,6 @@ void loop() {
         temp = temp + (0x0F & (str[i] >> 4));
         temp = temp + (0x0F & str[i]);
       }
-      lcd.clear();
-      lcd.setCursor(1, 0);
-      lcd.print(temp);
-      delay(3000);
       checkAccess(temp); 
     }
     rfid.selectTag(str); 
@@ -71,11 +67,8 @@ void checkAccess(String temp) {
     if (rfidList[i] == temp) {
       lcd.clear();
       lcd.setCursor(1, 0);
-      lcd.print("Access Granted");
-      delay(2000);
-      lcd.clear();
-      lcd.setCursor(1, 0);
-      lcd.print("Welcome..");
+      lcd.print("Welcome");
+      delay(500);
       granted = true;
       if (locked == true) {
         lockServo.write(unlockPos);
@@ -86,25 +79,27 @@ void checkAccess(String temp) {
       }
       digitalWrite(greenLEDPin, HIGH); 
       delay(200);
-      digitalWr-i
-      te(greenLEDPin, LOW);
+      digitalWrite(greenLEDPin, LOW);
       delay(200);
       digitalWrite(greenLEDPin, HIGH);
       delay(200);
       digitalWrite(greenLEDPin, LOW);
       delay(200);
+      lcd.clear();
+       lcd.setCursor(1, 0);
+  lcd.print("Tap the card");
     }
   }
   if ((totalAccess - 1) == j && granted == false)  {
     lcd.clear();
     lcd.setCursor(1, 0);
     lcd.print("Access Denied");
-    delay(1000);
-    lcd.clear();
-    tone(1, 1000);
-    delay(5000);
+    delay(300);
+    tone(0, 460);
+    delay(200);
     noTone(1);
     delay(200);
+    digitalWrite(0, HIGH); 
     digitalWrite(redLEDPin, HIGH); 
     delay(200);
     digitalWrite(redLEDPin, LOW);
@@ -113,5 +108,8 @@ void checkAccess(String temp) {
     delay(200);
     digitalWrite(redLEDPin, LOW);
     delay(200);
+    lcd.clear();
+    lcd.setCursor(1, 0);
+    lcd.print("Tap the card");
   }
 }

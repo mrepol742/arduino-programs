@@ -9,3 +9,4 @@ This is my arduino workspace where i create, test and run using Arduino IDE.
 - LiquidCrystal_I2C
 - SevSeg
 - RFID
+- NewPing

@@ -4,21 +4,26 @@ int ledPin2 = 11;
 int ldrPin = A0;
 int ldrPin1 = A1;
 
-void setup() {
+void setup()
+{
   Serial.begin(9600);
   pinMode(ledPin, OUTPUT);
   pinMode(ledPin1, OUTPUT);
   pinMode(ledPin2, OUTPUT);
 }
 
-void loop() {
+void loop()
+{
   int ldrStatus = analogRead(ldrPin);
   int ldrStatus1 = analogRead(ldrPin1);
   Serial.println(ldrStatus);
   Serial.println(ldrStatus1);
-  if (ldrStatus <= 150 && ldrStatus1 <= 150) {
-     switching();
-  } else {
+  if (ldrStatus <= 150 && ldrStatus1 <= 150)
+  {
+    switching();
+  }
+  else
+  {
     digitalWrite(ledPin, LOW);
     delay(200);
     digitalWrite(ledPin1, LOW);
@@ -27,7 +32,8 @@ void loop() {
   }
 }
 
-void switching() {
+void switching()
+{
   digitalWrite(ledPin, HIGH);
   digitalWrite(ledPin1, LOW);
   digitalWrite(ledPin2, LOW);

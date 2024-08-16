@@ -4,7 +4,7 @@
 
 
 # arduino-programs
-This is my arduino workspace where i create, test and run using Arduino IDE.
+This is my arduino workspace.
 
 ## Requirements
 - Arduino IDE
